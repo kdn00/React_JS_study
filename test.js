@@ -7,4 +7,4 @@ function solution(rsp) {
     var answer = [...rsp].map(v => arr[v]).join("");
     return answer;
 }
-console.log(solution("205"));
+console.log(solution("205")); 
