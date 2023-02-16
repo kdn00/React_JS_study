@@ -1,15 +1,7 @@
-class testClass {
-    constructor() {
-      this.a = '12345';
-    }
-  
-    consoleA() {
-      console.log(this.a);
-    }
-  }
-  
-  const testClassInstance = new testClass();
-  testClassInstance.consoleA(); // 12345
-  
-  const globalConsoleA = testClassInstance.consoleA.bind(testClassInstance);
-  globalConsoleA();
+// 괄호 안에 이상한 문법이 들어가 버렸습니다...!
+const newFunctionWrong = () => { a: '나는객체요소' };
+
+// 소괄호로 감싸게 되면 객체 자체를 리턴할 수가 있게 됩니다.
+const newFunction = () => (a, { a: '나는객체요소' });
+
+console.log(newFunction());
