@@ -22,6 +22,7 @@ function App() {
     <>
     <Wrapper>
     <Hello name="props 전달" color="indigo" />
+    
     {/* JSX 내부의 주석 방법 */}
     {/* JSX 내부에 자바스크립트 변수를 보여줘야 할 때에는 {} 으로 감싸서 보여줍니다. */}
     <div style={style}>{name}</div>
