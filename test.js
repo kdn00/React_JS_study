@@ -1,10 +1,15 @@
-function solution(rsp) {
-    let arr = {
-        2: 0,
-        0: 5,
-        5: 2
-    };
-    var answer = [...rsp].map(v => arr[v]).join("");
-    return answer;
-}
-console.log(solution("205")); 
+class testClass {
+    constructor() {
+      this.a = '12345';
+    }
+  
+    consoleA() {
+      console.log(this.a);
+    }
+  }
+  
+  const testClassInstance = new testClass();
+  testClassInstance.consoleA(); // 12345
+  
+  const globalConsoleA = testClassInstance.consoleA.bind(testClassInstance);
+  globalConsoleA();
