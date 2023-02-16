@@ -36,3 +36,22 @@ npx create-react-app 프로젝트명
 ```javascript
 yarn start
 ```
+
+### React의 Component
+---
+- React는 여러 개의 컴포넌트 구조로 이루어져 있습니다.
+- 때문에 아래의 코드처럼 각각의 부분을 분리해서 작업을 진행할 수 있습니다.
+```javascript
+<html>
+    <head></head>
+    <body>
+        <Header/>
+        <Main />
+        <Footer />
+    </body>
+</html> 
+```
+
+### 부모-자식 컴포넌트, 어떻게 판단하는가?
+---
+- 부모-자식 컴포넌트를 결정짓는 기준은 **수직적인 구조로 나중에 들어간 컴포넌트가 자식 컴포넌트로 취급됩니다.**
