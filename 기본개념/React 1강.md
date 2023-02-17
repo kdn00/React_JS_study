@@ -55,3 +55,55 @@ yarn start
 ### 부모-자식 컴포넌트, 어떻게 판단하는가?
 ---
 - 부모-자식 컴포넌트를 결정짓는 기준은 **수직적인 구조로 나중에 들어간 컴포넌트가 자식 컴포넌트로 취급됩니다.**
+
+### props & state
+---
+- props는 받은 데이터거나 생성된 데이터, 즉 데이터의 기원이 자기 자신이 아닌 것이고(Propertise)
+- state는 자기 자신의 컴포넌트에서 만들어낸 데이터다.
+- 어떤 컴포넌트를 기준으로 이야기하는지에 따라서 같은 데이터를 이야기하고 있을지라도 state가 될 수 있고, props가 될 수 있습니다.
+
+**state**
+- 현재 컴포넌트에서 생성, 변경할 수 있는 데이터입니다.
+- state는 오직 state가 생성된 컴포넌트 내에서만 변경이 가능합니다. (달리 말하면 props는 읽기 전용으로 쓰입니다.)
+- state를 선언, 정의, 출력하는 방법은 아래와 같습니다.
+```javascript
+class App extends Component{
+    // 선언
+    state = {
+        // 정의
+        helloMessage: 'Hello ReactJs!'
+    };
+    
+    render(){
+        return(
+            <div className="App">
+                <div>
+                    {/* 출력 */}
+                    <span>{this.state.helloMessage}</span>
+                </div>
+            </div>
+        );
+    }
+}
+export default App;
+```
+- state는 반드시 객체 형태로 생성되거나, null 타입이어야 합니다.
+- state를 업데이트 하려면 무조건 **setState**라는 메소드를 사용해야만 합니다.
+- 만약 **setState** 메소드를 사용하지 않고 state property에 접근해서 값을 변경하는 경우, 그 값이 실제 HTML상으로는 업데이트 되지 않습니다.
+- React에서는 특정한 작업이 이루어졌을 때만 HTML이 업데이트 되도록 만든 규칙 중 하나가 바로 setState 실행입니다.
+- setState메소드의 사용방법에는 여러 가지가 있지만, 일반적으로 class 컴포넌트에서는 setState( { 업데이트할 state property: 값 } )과 같은 객체 형태로 업데이트 합니다. (예시는 아래의 코드)
+```javascript
+this.setState({
+    helloMessage: 'Change'
+})
+```
+- 함수형 컴포넌트에서는 아래와 같이 state 선언, 변경 함수를 지정합니다.
+```javascript
+// useState의 첫 번째 파라미터는 '현재 상태'고, 두 번째 파라미터는 현재 상태를 바꿔주는 함수입니다.
+// 따라서 아래의 message에는 "어서오십쇼!"라는 값이 들어있고, setMessage는 현재 상태를 바꿔줄 함수입니다.
+const [message, setMessage] = useState("어서오십쇼!");
+
+// 상태 변경 함수는 아래와 같이 사용합니다(화살표형 메소드 사용)
+const onClickEnter = () => setMessage("주문 어떻게 해드릴까요?");
+const onClickLeave = () => setMessage("안녕히 가세요. 다음에 뵙겠습니다!");
+```
