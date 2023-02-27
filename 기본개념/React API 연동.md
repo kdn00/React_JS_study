@@ -165,3 +165,14 @@ function App() {
   return <Users />;
 }
 ```
+
+### 2. useReducer로 요청 상태 관리하기
+---
+- 이전에 구현한 User 컴포넌트에서 useState 대신에 useReducer를 사용해서 구현하기
+- useReducer를 사용하여 LOADING, SUCCESS, ERROR 액션에 따라 다르게 처리해보자.
+```javascript
+./api-integrate/src/Users_useReducer.js 파일 참고
+```
+**useReducer 로 구현했을 때의 장점** : useState 의 setState 함수를 여러번 사용하지 않아도 된다는점과, 리듀서로 로직을 분리했으니 다른곳에서도 쉽게 재사용을 할 수 있다는 점이다.
+- 물론, 취향에 따라 useState 로 구현을 해도 무방하다.
+- 다음 섹션에서는 이번에 만든 reducer를 기반으로, 커스텀 Hook을 만들어보자.
